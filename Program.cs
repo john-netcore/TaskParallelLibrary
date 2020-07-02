@@ -8,7 +8,7 @@ namespace TaskParallelLibrary
     {
         static void Main(string[] args)
         {
-            //Declaration of task one. The task does not do anything until it gets started.
+            //Declaration of tasks. The tasks don't do anything until they get started.
             var task1 = new Task(() => DoSomeVeryImportantWork(1, 2000));
             var task2 = new Task(() => DoSomeVeryImportantWork(2, 3000));
             var task3 = new Task(() => DoSomeVeryImportantWork(3, 1000));
@@ -18,7 +18,7 @@ namespace TaskParallelLibrary
             task2.Start();
             task3.Start();
 
-            //This code continues to execute in parallel with the task operations.
+            //This code continues to execute in parallel with the tasks operations.
             Console.WriteLine("Press key to quit.");
             Console.ReadKey();
         }
