@@ -16,6 +16,10 @@ namespace TaskParallelLibrary
                 System.Console.WriteLine("Task 1 has completed.");
             });
 
+            //Starts to execute the task Action operations.
+            task1.Start();
+
+            //This code continues to execute parallel while the task Action is getting executed.
             Console.WriteLine("Press key to quit.");
             Console.ReadKey();
         }
