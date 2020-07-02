@@ -24,5 +24,12 @@ namespace TaskParallelLibrary
             Thread.Sleep(sleepTime);
             System.Console.WriteLine("Task {0} has completed.", id);
         }
+
+        static void DoSomeOtherVeryImportantWork(int id, int sleepTime)
+        {
+            System.Console.WriteLine("Task {0} is beginning other work.", id);
+            Thread.Sleep(sleepTime);
+            System.Console.WriteLine("Task {0} has completed other work.", id);
+        }
     }
 }
