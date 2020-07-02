@@ -14,7 +14,9 @@ namespace TaskParallelLibrary
             var task2 = Task.Factory.StartNew(() => DoSomeVeryImportantWork(2, 3000));
             var task3 = Task.Factory.StartNew(() => DoSomeVeryImportantWork(3, 1000));
 
-            //This code continues to execute in parallel with the tasks operations.
+            //Blocks execution until all the tasks have finished their operations.
+            Task.WaitAll(task1, task2, task3);
+
             Console.WriteLine("Press key to quit.");
             Console.ReadKey();
         }
