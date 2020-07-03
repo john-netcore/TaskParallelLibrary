@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,14 +9,10 @@ namespace TaskParallelLibrary
     {
         static void Main(string[] args)
         {
-            //Declaration and initialization of tasks.
-            var task1 = Task.Factory.StartNew(() => DoSomeVeryImportantWork(1, 2000))
-                                    .ContinueWith((prevTask) => DoSomeOtherVeryImportantWork(1, 1000));
-            var task2 = Task.Factory.StartNew(() => DoSomeVeryImportantWork(2, 3000));
-            var task3 = Task.Factory.StartNew(() => DoSomeVeryImportantWork(3, 1000));
+            var workToDo = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
-            //Blocks execution until all the tasks have finished their operations.
-            Task.WaitAll(task1, task2, task3);
+            //Executing Actions in parallel, Parallel blocks the code until it is done with all the operations.
+            Parallel.ForEach(workToDo, i => System.Console.WriteLine(i));
 
             Console.WriteLine("Press key to quit.");
             Console.ReadKey();
